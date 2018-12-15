@@ -9,14 +9,23 @@ def separator():
 
 def error(message):
 	print("Error - " + message)
-	print("\nPress any key to exit the program...")
-	os.system("pause >nul")
-	sys.exit(0)
+	pause_exit()
 
-# Initialize console
-os.system("cls")
-os.system("mode con: cols=88 lines=25")
-os.system("color 0B")
+def pause_exit():
+	if sys.platform == "linux" or sys.platform == "linux2":
+		sys.exit(0)
+	elif sys.platform == "win32":
+		print("Press any key to exit the program...")
+		os.system("pause >nul")
+		sys.exit(0)
+	else:
+		sys.exit(0)
+
+# Initialize console (Windows)
+if sys.platform == "win32":
+	os.system("cls")
+	os.system("mode con: cols=88 lines=25")
+	os.system("color 0B")
 
 print("TOBJ Creator " + version)
 separator()
@@ -25,8 +34,9 @@ separator()
 print("Enter path of base TOBJ file to be used (Drag the file over the console window):")
 tobjfilepath = input("> ")
 separator()
-# Get rid of quotes from dragging a file onto the console.
+# Get rid of junk characters from dragging a file onto the console.
 tobjfilepath = tobjfilepath.replace('"', '')
+tobjfilepath = tobjfilepath.replace("'", '')
 if not os.path.exists(tobjfilepath):
 	error("File does not exist.")
 file = open(tobjfilepath, "rb")
@@ -55,5 +65,4 @@ file.write(path)
 file.close()
 
 print("TOBJ file has been successfully created!\nIt has been saved as export.tobj in the script folder.")
-print("Press any key to exit the program...")
-os.system("pause >nul")
+pause_exit()
