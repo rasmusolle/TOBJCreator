@@ -2,6 +2,8 @@ import binascii
 import os
 import sys
 
+version = "v1.1"
+
 def separator():
 	print("=======================================================================================")
 
@@ -16,7 +18,7 @@ os.system("cls")
 os.system("mode con: cols=88 lines=25")
 os.system("color 0B")
 
-print("TOBJ Creator v1.0")
+print("TOBJ Creator " + version)
 separator()
 
 # Get first part of a TOBJ file.
