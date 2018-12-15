@@ -5,6 +5,12 @@ import sys
 def separator():
 	print("=======================================================================================")
 
+def error(message):
+	print("Error - " + message)
+	print("\nPress any key to exit the program...")
+	os.system("pause >nul")
+	sys.exit(0)
+
 # Initialize console
 os.system("cls")
 os.system("mode con: cols=88 lines=25")
@@ -29,10 +35,7 @@ path = input("> ")
 separator()
 pathlength = len(path)
 if pathlength > 255:
-	print("Path is too long.")
-	print("Press any key to exit the program...")
-	os.system("pause >nul")
-	sys.exit(0)
+	error("Path is too long.")
 pathlength_hex = hex(pathlength)[2:]
 if len(pathlength_hex) == 1:
 	pathlength_hex = "0" + pathlength_hex
