@@ -25,6 +25,8 @@ tobjfilepath = input("> ")
 separator()
 # Get rid of quotes from dragging a file onto the console.
 tobjfilepath = tobjfilepath.replace('"', '')
+if not os.path.exists(tobjfilepath):
+	error("File does not exist.")
 file = open(tobjfilepath, "rb")
 filecontents = file.read(40)
 file.close()
