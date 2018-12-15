@@ -6,6 +6,8 @@ from functions import *
 version = "v1.1"
 
 def main():
+	successful = False
+
 	# Initialize console (Windows)
 	if sys.platform == "win32":
 		os.system("cls")
@@ -16,25 +18,32 @@ def main():
 	separator()
 
 	# Get first part of a TOBJ file.
-	print("Enter path of base TOBJ file to be used (Drag the file over the console window):")
-	tobjfilepath = input("> ")
-	separator()
-	# Get rid of junk characters from dragging a file onto the console.
-	tobjfilepath = tobjfilepath.replace('"', '')
-	tobjfilepath = tobjfilepath.replace("'", '')
-	if not os.path.exists(tobjfilepath):
-		error("File does not exist.")
+	while not successful:
+		print("Enter path of base TOBJ file to be used (Drag the file over the console window):")
+		tobjfilepath = input("> ")
+		separator()
+		# Get rid of junk characters from dragging a file onto the console.
+		tobjfilepath = tobjfilepath.replace('"', '')
+		tobjfilepath = tobjfilepath.replace("'", '')
+		if not os.path.exists(tobjfilepath):
+			error("File does not exist.")
+		else:
+			successful = True
 	file = open(tobjfilepath, "rb")
 	filecontents = file.read(40)
 	file.close()
+	successful = False
 
 	# Make other part of the TOBJ file. (DDS file stuff)
-	print("Enter path you want to be in your TOBJ file:")
-	path = input("> ")
-	separator()
-	pathlength = len(path)
-	if pathlength > 255:
-		error("Path is too long.")
+	while not successful:
+		print("Enter path you want to be in your TOBJ file:")
+		path = input("> ")
+		separator()
+		pathlength = len(path)
+		if pathlength > 255:
+			error("Path is too long.")
+		else:
+			successful = True
 	pathlength_hex = hex(pathlength)[2:]
 	if len(pathlength_hex) == 1:
 		pathlength_hex = "0" + pathlength_hex
@@ -50,6 +59,7 @@ def main():
 
 	print("TOBJ file has been successfully created!\nIt has been saved as export.tobj in the script folder.")
 	pause_exit()
-	
+
+
 if __name__ == '__main__':
     main()

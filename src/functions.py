@@ -6,7 +6,6 @@ def separator():
 
 def error(message):
 	print("Error - " + message)
-	pause_exit()
 
 def pause_exit():
 	if sys.platform == "linux" or sys.platform == "linux2":
