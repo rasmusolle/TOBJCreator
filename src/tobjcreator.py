@@ -89,7 +89,7 @@ def main(tobjfilepath = False,path = False,tobjoutpath = False):
 	file.close()
 
 	print("TOBJ file has been successfully created!")
-	if len(sys.argv) < 4:
+	if len(sys.argv) < 4 and __name__ == '__main__':
 		pause_exit()
 
 
