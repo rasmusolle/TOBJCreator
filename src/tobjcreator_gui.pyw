@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import messagebox
 import tobjcreator as tobjcreator
 import os
+import sys
 
 def create(*args):
 	if not os.path.exists(source_tobj.get()):
@@ -16,7 +17,7 @@ def create(*args):
 
 root = Tk()
 root.title("TOBJ Creator " + tobjcreator.version + " GUI")
-#root.iconbitmap('/home/administrator/Github/tobjcreator/src/icon.ico')
+root.iconbitmap(sys.path[0] + '/icon.ico')
 root.resizable(False, False)
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
