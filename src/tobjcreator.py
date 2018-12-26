@@ -11,7 +11,7 @@ def main(tobjfilepath = False,path = False,tobjoutpath = False):
 	selected = False
 
 	# Initialize console (Windows)
-	if sys.platform == "win32" and len(sys.argv) < 4:
+	if sys.platform == "win32" and len(sys.argv) < 4 and not tobjfilepath:
 		os.system("cls")
 		os.system("mode con: cols=88 lines=25")
 		os.system("color 0B")
