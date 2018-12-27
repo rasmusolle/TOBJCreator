@@ -17,7 +17,8 @@ def create(*args):
 
 root = Tk()
 root.title("TOBJ Creator " + tobjcreator.version + " GUI")
-root.iconbitmap(sys.path[0] + '/icon.ico')
+if os.system == "win32":
+	root.iconbitmap(sys.path[0] + "/icon.ico")
 root.resizable(False, False)
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
