@@ -24,4 +24,5 @@ def pause_exit():
 def stripquotes(input):
 	input = input.replace('"', '')
 	input = input.replace("'", '')
+	input = input.strip()
 	return input
