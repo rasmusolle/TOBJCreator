@@ -68,11 +68,11 @@ def main(tobjfilepath = False,path = False,tobjoutpath = False):
 			if os.path.exists(tobjoutpath):
 				while not selected:
 					print("Destination already exists. Overwrite? [Y/N]")
-					overwrite = input("> ").lower()
-					if overwrite == "y":
+					overwrite = input("> ")
+					if overwrite == "y" or overwrite == "Y":
 						selected = True
 						successful = True
-					if overwrite == "n":
+					if overwrite == "n" or overwrite == "N":
 						selected = True
 					separator()
 				selected = False
