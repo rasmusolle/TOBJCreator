@@ -65,6 +65,8 @@ def main(tobjfilepath = False,path = False,tobjoutpath = False):
 			print("Enter destination of TOBJ file:")
 			tobjoutpath = input("> ")
 			separator()
+			# Get rid of junk characters from dragging a file onto the console.
+			tobjoutpath = stripquotes(tobjoutpath)
 			if os.path.exists(tobjoutpath):
 				while not selected:
 					print("Destination already exists. Overwrite? [Y/N]")
