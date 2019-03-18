@@ -1,6 +1,4 @@
 # TOBJ Creator
-![Screenshot](https://raw.githubusercontent.com/rasmusolle/TOBJCreator/master/screenshot.PNG)
-
 TOBJ Creator is a Python program that makes TOBJ files for ETS2, ATS and probably every other SCS game.
 
 ## Usage
