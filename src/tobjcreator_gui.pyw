@@ -14,6 +14,7 @@ def create(*args):
 		messagebox.showerror("Error","Please fill in all input boxes.")
 	else:
 		tobjcreator.main(source_tobj.get(),dds_path.get(),output_tobj.get())
+		messagebox.showinfo("Success!","TOBJ file successfully created!")
 
 root = Tk()
 root.title("TOBJ Creator " + tobjcreator.version + " GUI")
